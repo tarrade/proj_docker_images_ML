@@ -33,26 +33,6 @@ RUN /opt/rh/devtoolset-2/root/usr/bin/gcc --version
 # set the path
 ENV PATH /opt/rh/devtoolset-2/root/usr/bin:$PATH
 
-# adding libraries when needed
-#RUN yum -y install g++
-#RUN yum -y install libfreetype6-dev
-#RUN yum -y install libpng12-dev
-#RUN yum -y install libzmq3-dev
-#RUN yum -y install pkg-config
-#RUN yum -y install rsync
-#RUN yum -y install software-properties-common
-
-# removing list
-#RUN rm -rf /var/lib/apt/lists/*
-
-
-#RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
-#    wget --quiet https://repo.continuum.io/archive/Anaconda3-4.1.1-Linux-x86_64.sh -O ~/anaconda.sh && \
-#    /bin/bash ~/anaconda.sh -b -p /opt/conda && \
-#    rm ~/anaconda.sh
-#ENV PATH /opt/conda/bin:$PATH
-
-
 # Anaconda installation
 RUN wget https://repo.continuum.io/archive/Anaconda3-5.0.1-Linux-x86_64.sh && \
     /bin/bash Anaconda3-5.0.1-Linux-x86_64.sh -b -p /opt/conda && \
@@ -72,26 +52,10 @@ ADD environment.yml environment.yml
 RUN ls -la
 
 # install extra conda packages
-#RUN conda create -n env_py35 numpy pandas scikit-learn matplotlib tensorflow pyarrow plotly python=3.5
-
-#RUN conda create -n env_py35 anaconda python=3.5
 RUN conda env create -f=environment.yml -n env_py35
-#RUN conda env create
 
 RUN source activate env_py35 && \
 	which python && \
-	##git clone --recursive https://github.com/dmlc/xgboost.git && \
-	##cd xgboost && make -j4 && cd python-package && python setup.py install && \
-	#conda install xgboost  && \
-	#conda install pyarrow && \
-	#conda install plotly && \
-	#conda install eli5 && \
-	#conda install tensorflow && \
-    #conda install numpy && \
-    #conda install tensorflow && \
-    #conda install pandas && \
-    #conda install scikit-learn  && \
-    #conda install matplotlib && \
 	source deactivate env_py35
 
 RUN conda create -n env_ds_bigbox --clone env_py35 --offline && \
