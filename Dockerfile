@@ -113,4 +113,5 @@ RUN rm -rf /opt/conda/pkgs/*
 # checking path and env
 RUN echo $PATH
 RUN conda env list
+RUN ls -la
 
