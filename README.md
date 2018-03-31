@@ -8,11 +8,15 @@ This env is then extracted and can be moved on the hege to be used in a kernel w
 First update the environment.yml with you favorite python packages for Machine Learning, Deep Learning and Data Science
 
 First build the docker image
+
 ```docker build .```
+
 or
+
 ```docker build -t docker-anaconda-env .```
 
 Then run the docker image and copy zipped env in `/Users/tarrade/docker/extracted_kernel/`
+
 ```docker run -v /Users/tarrade/docker/extracted_kernel/:/extracted_kernel  -t docker-anaconda-env```
 
 ## On your server (without access to internet)
