@@ -21,9 +21,12 @@ Then run the docker image and copy zipped env in `/Users/tarrade/docker/extracte
 
 ```docker run -v /Users/tarrade/docker/extracted_kernel/:/extracted_kernel  -t docker-anaconda-env```
 
-## On your server (without access to internet)
+## On your server (without access to internet), first be sure you have some local installation of anaconda
 ```
-PATH=/opt/cloudera/extras/anaconda3/bin:$PATH
+export PATH=/opt/cloudera/extras/anaconda3-4.1.1/bin:$PATH
+unzip env_ds_bigbox.zip
+mv env_ds_bigbox YOURPTHATH/envs/.
+source activate env_ds_bigbox
 ```
 
 # How to use Docker
