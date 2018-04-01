@@ -3,6 +3,8 @@ Create docker images based on centos 6.9 to emulate an hedge node rhel 6.9 Linux
 An python env with all the needed Machine Learning, Deep Learning, NLP and Visualization is created using conda.
 This env is then extracted and can be moved on the hege to be used in a kernel with JupyterHub or deployed on the node of the Hadoop cluster.
 
+This docker image was created on a MAcBookPro with Docker version 18.03.0
+
 # How to build and install a env from  a local machine to a distant Linux server without Internet
 ## On your local computer with Docker installed and with an Internet connection
 First update the environment.yml with you favorite python packages for Machine Learning, Deep Learning and Data Science
