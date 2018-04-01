@@ -28,6 +28,12 @@ PATH=/opt/cloudera/extras/anaconda3/bin:$PATH
 ## build a docker image
 ```docker build -t docker-anaconda-env .```
 
+## run the docker image to you can see what is in it and check the list of python packages
+```docker run -i -t docker-anaconda-env  /bin/bash```
+
+## run the docker image and mount the extracted_kernel folder to get the .zip env
+```docker run -v /Users/tarrade/docker/extracted_kernel/:/extracted_kernel  -t docker-anaconda-env```
+
 ## see the docker containers
 ```docker ps```
 

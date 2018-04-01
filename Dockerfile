@@ -80,4 +80,3 @@ RUN rm -rf /opt/conda/pkgs/*
 RUN echo $PATH
 RUN conda env list
 RUN ls -la
-
