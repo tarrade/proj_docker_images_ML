@@ -60,8 +60,10 @@ RUN source activate env_py35 && \
 
 RUN conda create -n env_ds_bigbox --clone env_py35 --offline && \
     cd /opt/conda/envs/ && \
-    zip env_ds_bigbox.zip env_ds_bigbox && \
-    cd /
+    ls -la && \
+    zip -r env_ds_bigbox.zip env_ds_bigbox && \
+    cd / \
+    ls -la
     #tar -cvzf /opt/conda/envs/env_ds_bigbox.tar.gz /opt/conda/envs/env_ds_bigbox/
 
 # activate the env_ds_bigbox environment
