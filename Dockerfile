@@ -56,6 +56,7 @@ RUN conda env create -f=environment.yml -n env_py35
 
 RUN source activate env_py35 && \
 	which python && \
+	pip install sklearn && \
 	source deactivate env_py35
 
 RUN conda create -n env_ds_bigbox --clone env_py35 --offline && \
