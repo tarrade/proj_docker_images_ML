@@ -7,6 +7,7 @@ This docker image was created on a MacBookPro with Docker version 18.03.0
 
 Note:
 - using tornado=4.5.3 to avoid an issue with Jupyter kernel crashing !
+
   https://github.com/ipython/ipython/issues/11030
 
 - One package is installed with pip: pip install sklearn
@@ -44,9 +45,13 @@ source activate env_ds_bigbox
 
 ### how to start and use Jupyter
 ```docker run -i -p 8888:8888 -t docker-anaconda-env  /bin/bash```
+
 and in the docker image run:
+
 ```jupyter notebook --ip 0.0.0.0 --no-browser --allow-root```
+
 then in a web browser and copy the url in a web browser like the one below:
+
 ```http://0.0.0.0:8888/?token=820bc0681fcc5467bb8c2e334fe1a783834ce990bda8b16f```
 
 we can also find the url by running the following command:
