@@ -7,25 +7,19 @@ This docker image was created on a MacBookPro with Docker version 18.03.0
 
 Note:
 - using tornado=4.5.3 to avoid an issue with Jupyter kernel crashing !
-
   https://github.com/ipython/ipython/issues/11030
-
-- One package is installed with pip: pip install sklearn
+- conda and pip python packages are install using the same environment.yml file
 
 # How to build and install a env from  a local machine to a distant Linux server without Internet
 ## On your local computer with Docker installed and with an Internet connection
 First update the environment.yml with you favorite python packages for Machine Learning, Deep Learning and Data Science
 
 First build the docker image
-
 ```docker build .```
-
 or
-
 ```docker build -t docker-anaconda-env .```
 
 Then run the docker image and copy zipped env in `/Users/tarrade/docker/extracted_kernel/`
-
 ```docker run -v /Users/tarrade/docker/extracted_kernel/:/extracted_kernel  -t docker-anaconda-env```
 
 ## On your server (without access to internet), first be sure you have some local installation of anaconda
@@ -45,15 +39,10 @@ source activate env_ds_bigbox
 
 ### how to start and use Jupyter
 ```docker run -i -p 8888:8888 -t docker-anaconda-env  /bin/bash```
-
 and in the docker image run:
-
 ```jupyter notebook --ip 0.0.0.0 --no-browser --allow-root```
-
 then in a web browser and copy the url in a web browser like the one below:
-
 ```http://0.0.0.0:8888/?token=820bc0681fcc5467bb8c2e334fe1a783834ce990bda8b16f```
-
 we can also find the url by running the following command:
 ```docker exec -it 91f13d4505b6 jupyter notebook list```
 

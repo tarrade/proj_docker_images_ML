@@ -28,6 +28,7 @@ RUN yum install -y bzip2\
 RUN wget http://people.centos.org/tru/devtools-2/devtools-2.repo -O /etc/yum.repos.d/devtools-2.repo
 RUN yum install -y devtoolset-2-gcc devtoolset-2-binutils ; yum clean all
 RUN yum install -y devtoolset-2-gcc-c++ devtoolset-2-gcc-gfortran ; yum clean all
+RUN yum -y install python-pip; yum clean all
 RUN /opt/rh/devtoolset-2/root/usr/bin/gcc --version
 
 # set the path
@@ -56,7 +57,6 @@ RUN conda env create -f=environment.yml -n env_py35
 
 RUN source activate env_py35 && \
 	which python && \
-	pip install sklearn && \
 	source deactivate env_py35
 
 RUN conda create -n env_ds_bigbox --clone env_py35 --offline && \

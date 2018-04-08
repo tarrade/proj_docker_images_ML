@@ -43,7 +43,7 @@ dependencies:
 - click
 - openpyxl
 - anaconda
- - pip:
-   - watermark
-   - pytest
-   - sklearn
+- pip:
+  - watermark
+  - pytest
+  - sklearn
