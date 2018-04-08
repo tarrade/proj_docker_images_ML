@@ -39,4 +39,11 @@ dependencies:
 - eli5=0.8
 - click=6.7
 - tornado=4.5.3
+- requests
+- click
+- openpyxl
 - anaconda
+ - pip:
+   - watermark
+   - pytest
+   - sklearn
