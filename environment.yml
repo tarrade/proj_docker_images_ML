@@ -1,6 +1,7 @@
 channels:
 - defaults
 - conda-forge
+- pytorch
 dependencies:
 - keras=2.1.5
 - pyarrow=0.9.0
@@ -21,15 +22,18 @@ dependencies:
 - pillow=5.0.0
 - plotly=2.4.1
 - python=3.5.4
-- pytorch=0.3.1
+- pytorch-cpu
+- torchvision-cpu
 - scikit-image=0.13.1
 - scikit-learn=0.19.1
 - scipy=1.0.1
 - scrapy=1.5.0
 - seaborn=0.8.1
-- spacy=2.0.9
+- spacy=2.0.11
+- regex=2017.4.5
 - statsmodels=0.8.0
-- tensorflow=1.6.0
+- tensorflow=1.8.0
+- tensorflow-tensorboard
 - theano=1.0.1
 - pygpu=0.7.5
 - ipykernel=4.6.1
@@ -45,8 +49,19 @@ dependencies:
 - requests
 - click
 - openpyxl
+- autopep8
 - anaconda
+- catboost
+- lightgbm
+- cython
+- pathlib
+- msgpack-python
 - pip:
   - watermark
   - pytest
   - sklearn
+  - bayesian-optimization
+  - jupyter-tensorboard
+  - autopep8
+  - shap
+  - msgpack
