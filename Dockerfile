@@ -4,6 +4,9 @@ FROM centos:6.9
 # define the language
 ENV LANG=en_US.UTF-8
 
+# check libc version
+RUN ldd --version
+
 # adding libraries to download linux/anaconda packages packages
 RUN yum install -y bzip2\
     wget unzip \
@@ -35,9 +38,9 @@ RUN /opt/rh/devtoolset-2/root/usr/bin/gcc --version
 ENV PATH /opt/rh/devtoolset-2/root/usr/bin:$PATH
 
 # Anaconda installation
-RUN wget https://repo.continuum.io/archive/Anaconda3-5.0.1-Linux-x86_64.sh && \
-    /bin/bash Anaconda3-5.0.1-Linux-x86_64.sh -b -p /opt/conda && \
-    rm Anaconda3-5.0.1-Linux-x86_64.sh
+RUN wget https://repo.continuum.io/archive/Anaconda3-5.1.0-Linux-x86_64.sh && \
+    /bin/bash Anaconda3-5.1.0-Linux-x86_64.sh -b -p /opt/conda && \
+    rm Anaconda3-5.1.0-Linux-x86_64.sh
 
 # seting the path
 ENV PATH /opt/conda/bin:$PATH
@@ -51,6 +54,9 @@ ADD environment.yml environment.yml
 
 # checking that the file is now present
 RUN ls -la
+
+# update conda
+RUN conda update -n base conda -y
 
 # install extra conda packages
 RUN conda env create -f=environment.yml -n env_py35
