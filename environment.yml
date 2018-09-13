@@ -2,6 +2,7 @@ channels:
 - defaults
 - pytorch
 - conda-forge
+- districtdatalabs
 dependencies:
 - keras=2.1.5
 - pyarrow=0.9.0
@@ -14,13 +15,12 @@ dependencies:
 - h2o-py=3.18.0.2
 - jupyterlab=0.27.0
 - matplotlib=2.2.2
-- nltk=3.2.5
-- numpy=1.14.2
-- pandas=0.22.0
+- nltk=3.3.0
+- numpy=1.14.5
+- pandas=0.23.0
 - pandas-profiling=1.4.0
-- pep8=1.7.1
 - pillow=5.0.0
-- plotly=2.4.1
+- plotly=2.7.0
 - python=3.5.4
 - pytorch-cpu
 - torchvision-cpu
@@ -33,7 +33,7 @@ dependencies:
 - regex=2017.4.5
 - statsmodels=0.8.0
 - tensorflow=1.7.0
-- tensorflow-tensorboard=1.7.0
+- tensorboard=1.7.0
 - theano=1.0.1
 - pygpu=0.7.5
 - ipykernel=4.6.1
@@ -46,22 +46,39 @@ dependencies:
 - tornado=4.5.3
 - wordcloud=1.2.1
 - scattertext=0.0.2.20.1
-- requests
+- requests=2.18.4
 - click
 - openpyxl
 - autopep8
+- pep8=1.7.1
 - anaconda
-- catboost
+- catboost=0.8.1
 - lightgbm
-- cython
+- cython=0.28.3
 - pathlib
 - msgpack-numpy=0.4.3
+- watermark
+- pytest
+- dash=0.21.1
+- dash-renderer=0.13.0
+- dash-html-components=0.11.0
+- dash-core-components=0.23.0
+- plotly
+- openpyxl=2.5.3
+- sqlalchemy=1.2.8
+- lime
+- yellowbrick
+- quiver_engine
+- tpot
+- scikit-mdr
+- skrebate
+- scikit-plot
+- scikit-optimize
 - pip:
-  - watermark
-  - pytest
   - sklearn
   - bayesian-optimization
   - jupyter-tensorboard
-  - autopep8
   - shap
   - msgpack
+
+
