@@ -1,0 +1,21 @@
+22 sept 2018:
+-> keras 2.2.2
+-> pandas 0.23.4
+-> jupyterlab 0.34.9
+-> plotly 3.2.1
+-> scikit-lear 0.19.2
+-> catboost 0.10.2 (issue, pip got the wrong dependency list!, bug open)
+-> requets 2.19.1
+-> seaborn 0.9.0
+-> scipy 1.1.0
+-> xgboost 0.80
+-> bokeh 0.13.0
+-> scattertext 0.0.0.28
+added
+- pylama=7.4.3
+- langdetect=1.0.7
+- notebook=5.6.0
+- ipywidgets=7.4.1
+- nbconvert=5.4.0
+- pyhamcrest=1.9.0
+- bz2file=0.98
