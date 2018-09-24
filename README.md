@@ -6,9 +6,10 @@ This env is then extracted and can be moved on the hege to be used in a kernel w
 This docker image was created on a MacBookPro with Docker version 18.03.0
 
 Note:
-- using tornado=4.5.3 to avoid an issue with Jupyter kernel crashing !
+- using tornado=5.1 and ipykernel=4.9.0 to avoid an issue with Jupyter kernel crashing !
   https://github.com/ipython/ipython/issues/11030
 - conda and pip python packages are install using the same environment.yml file
+- Warning from catboost because conda installation and pip installation don't have the same requirement list. Conda seems to be right and it seems to works.
 
 # How to build and install a env from  a local machine to a distant Linux server without Internet
 ## On your local computer with Docker installed and with an Internet connection
