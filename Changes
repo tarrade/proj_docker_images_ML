@@ -1,4 +1,22 @@
-22 sept 2018:
+# 17 oct 2018:
+update
+-> python 3.6.6
+-> Anaconda3-5.3.0-Linux-x86_64.sh
+added
+- back
+- thinc
+- hypothesis
+- conda-pack
+- pixiedust
+drop
+-> fixed version of wordcloud
+
+# 03 oct 2018
+update
+-> update ML packages (look at the yml file to see all the updates)
+
+# 22 sept 2018:
+update
 -> keras 2.2.2
 -> pandas 0.23.4
 -> jupyterlab 0.34.9

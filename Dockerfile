@@ -38,9 +38,9 @@ RUN /opt/rh/devtoolset-2/root/usr/bin/gcc --version
 ENV PATH /opt/rh/devtoolset-2/root/usr/bin:$PATH
 
 # Anaconda installation
-RUN wget https://repo.continuum.io/archive/Anaconda3-5.2.0-Linux-x86_64.sh && \
-    /bin/bash Anaconda3-5.2.0-Linux-x86_64.sh -b -p /opt/conda && \
-    rm Anaconda3-5.2.0-Linux-x86_64.sh
+RUN wget https://repo.continuum.io/archive/Anaconda3-5.3.0-Linux-x86_64.sh && \
+    /bin/bash Anaconda3-5.3.0-Linux-x86_64.sh -b -p /opt/conda && \
+    rm Anaconda3-5.3.0-Linux-x86_64.sh
 
 # seting the path
 ENV PATH /opt/conda/bin:$PATH
@@ -59,7 +59,7 @@ RUN ls -la
 RUN conda update -n base conda -y
 
 # update pip
-RUN pip install --upgrade pip
+RUN pip install --upgrade pip msgpack PyHamcrest==1.9.0
 
 # install extra conda packages
 RUN conda env create -f=environment.yml -n env_py35
