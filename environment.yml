@@ -86,8 +86,8 @@ dependencies:
 - bz2file=0.98
 - pydot
 - conda-pack
+- pip=18.1
 - pip:
-  - pip==18.0
   - bayesian-optimization
   - jupyter-tensorboard
   - shap

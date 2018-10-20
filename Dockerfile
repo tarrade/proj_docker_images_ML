@@ -59,34 +59,52 @@ RUN ls -la
 RUN conda update -n base conda -y
 
 # update pip
-RUN pip install --upgrade pip msgpack PyHamcrest==1.9.0
+#RUN pip install --upgrade pip msgpack PyHamcrest==1.9.0
 
 # install extra conda packages
-RUN conda env create -f=environment.yml -n env_py35
+RUN conda env create -f=environment.yml -n env_ds_bigbox
 
-RUN source activate env_py35 && \
+RUN source activate env_ds_bigbox && \
 	which python && \
-	source deactivate env_py35
-
-RUN conda create -n env_ds_bigbox --clone env_py35 --offline && \
-    cd /opt/conda/envs/ && \
-    ls -la && \
-    zip -r env_ds_bigbox.zip env_ds_bigbox && \
-    cd / \
-    ls -la
-    #tar -cvzf /opt/conda/envs/env_ds_bigbox.tar.gz /opt/conda/envs/env_ds_bigbox/
+	conda list && \
+	conda-pack -n env_ds_bigbox -o env_ds_bigbox.tar.gz && \
+	ls -la && \
+	source deactivate env_ds_bigbox
 
 # activate the env_ds_bigbox environment
 ENV PATH /opt/conda/envs/env_ds_bigbox/bin:$PATH
 
 # copy the env in a folder which is mounted on an external folder
-#CMD /bin/mv /opt/conda/envs/env_ds_bigbox.tar.gz /extracted_kernel/
-CMD /bin/mv /opt/conda/envs/env_ds_bigbox.zip /extracted_kernel/
+CMD /bin/mv env_ds_bigbox.tar.gz /extracted_kernel/
 
 # remove pkgs if not needed: to be checked
 RUN rm -rf /opt/conda/pkgs/*
 
+# old method
+#RUN source activate env_py35 && \
+#	which python && \
+#	conda list && \
+#	ls -la && \
+#	source deactivate env_py35
+
+#RUN conda create -n env_ds_bigbox --clone env_py35 --offline && \
+#    cd /opt/conda/envs/ && \
+#    ls -la && \
+#    zip -r env_ds_bigbox.zip env_ds_bigbox && \
+#    cd / \
+#    ls -la
+
+# activate the env_ds_bigbox environment
+#ENV PATH /opt/conda/envs/env_ds_bigbox/bin:$PATH
+
+# copy the env in a folder which is mounted on an external folder
+#CMD /bin/mv /opt/conda/envs/env_ds_bigbox.zip /extracted_kernel/
+#CMD /bin/mv /opt/conda/envs/env_ds_bigbox.tar.zip /extracted_kernel/
+
+# remove pkgs if not needed: to be checked
+#RUN rm -rf /opt/conda/pkgs/*
+
 # checking path and env
-RUN echo $PATH
-RUN conda env list
-RUN ls -la
+#RUN echo $PATH
+#RUN conda env list
+#RUN ls -la

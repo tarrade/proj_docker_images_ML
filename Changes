@@ -1,3 +1,8 @@
+# 20 oct 2018:
+-> update pip with conda
+-> drop the clone of the env and use conda-pack instead
+-> reduction in size by x2 and speed up things by a x3
+
 # 17 oct 2018:
 update
 -> python 3.6.6
