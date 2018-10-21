@@ -78,3 +78,20 @@ we can also find the url by running the following command:
 ## to exist from a container (from Mac at least)
 ```exit```
 
+# How to use DockerHub
+## login from the prompt
+```docker login --username=your_login_docker_hub```
+
+## choose the image you want to publish
+```docker images```
+
+### tag the selected image (firt you need to create a new director on DockerHub: python36-conda-env-ml-dl)
+```docker tag xxxxxx your_login_docker_hub/python36-conda-env-ml-dl:firsttry```
+
+### push the selected image on DockerHUb
+```docker push  your_login_docker_hub/python36-conda-env-ml-dl```
+
+### the docker image can be now accessed from here:
+https://hub.docker.com/r/ftarrade/python36-conda-env-ml-dl/
+
+(more info here: https://ropenscilabs.github.io/r-docker-tutorial/04-Dockerhub.html)
