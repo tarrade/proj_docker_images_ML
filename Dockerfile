@@ -67,6 +67,7 @@ RUN conda env create -f=environment.yml -n env_ds_bigbox
 RUN source activate env_ds_bigbox && \
 	which python && \
 	conda list && \
+	conda install arrow-cpp -c conda-forge && \
 	conda-pack -n env_ds_bigbox -o env_ds_bigbox.tar.gz && \
 	ls -la && \
 	source deactivate env_ds_bigbox
