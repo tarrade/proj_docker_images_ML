@@ -46,8 +46,9 @@ RUN wget https://repo.continuum.io/archive/Anaconda3-5.3.0-Linux-x86_64.sh && \
 ENV PATH /opt/conda/bin:$PATH
 
 # defined channels for conda
-RUN conda config --add channels conda-forge
-RUN conda config --add channels defaults
+RUN conda config --append channels defaults
+RUN conda config --append channels conda-forge
+RUN conda config --get channels
 
 #adding the config file in the docker image
 ADD environment.yml environment.yml

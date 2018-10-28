@@ -1,3 +1,7 @@
+# 28 oct 2018
+-> drop conda-forge channel to avoid issue with binary
+-> add conda package also in the env
+
 # 25 oct 2018:
 -> issue with arrow-cpp not compile with the right version of boost on different channel
    https://issues.apache.org/jira/browse/ARROW-3048
