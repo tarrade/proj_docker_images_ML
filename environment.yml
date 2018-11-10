@@ -1,11 +1,11 @@
 channels:
-- defaults
-- pytorch
 - conda-forge
+- pytorch
+- defaults
 - districtdatalabs
 dependencies:
 - python=3.6.6
-- keras=2.2.2
+- keras
 - pyarrow=0.11.0
 - arrow-cpp=0.11.0
 - protobuf=3.6.0

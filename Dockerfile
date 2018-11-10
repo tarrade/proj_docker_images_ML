@@ -59,8 +59,9 @@ RUN ls -la
 # update conda
 RUN conda update -n base conda -y
 
-# update pip
+# tricks to be removed
 #RUN pip install --upgrade pip msgpack PyHamcrest==1.9.0
+#conda install arrow-cpp -c conda-forge && \
 
 # install extra conda packages
 RUN conda env create -f=environment.yml -n env_ds_bigbox
@@ -68,7 +69,6 @@ RUN conda env create -f=environment.yml -n env_ds_bigbox
 RUN source activate env_ds_bigbox && \
 	which python && \
 	conda list && \
-	conda install arrow-cpp -c conda-forge && \
 	conda-pack -n env_ds_bigbox -o env_ds_bigbox.tar.gz && \
 	ls -la && \
 	source deactivate env_ds_bigbox
@@ -78,6 +78,9 @@ ENV PATH /opt/conda/envs/env_ds_bigbox/bin:$PATH
 
 # copy the env in a folder which is mounted on an external folder
 CMD /bin/mv env_ds_bigbox.tar.gz /extracted_kernel/
+
+# clean all downloaded packages
+RUN conda clean -a -y
 
 # remove pkgs if not needed: to be checked
 RUN rm -rf /opt/conda/pkgs/*
