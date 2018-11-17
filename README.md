@@ -85,7 +85,7 @@ we can also find the url by running the following command:
 ## choose the image you want to publish
 ```docker images```
 
-### tag the selected image (firt you need to create a new director on DockerHub: python36-conda-env-ml-dl)
+### tag the selected image (first you need to create a new director on DockerHub: python36-conda-env-ml-dl)
 ```docker tag xxxxxx your_login_docker_hub/python36-conda-env-ml-dl:firsttry```
 
 ### push the selected image on DockerHUb
@@ -93,5 +93,17 @@ we can also find the url by running the following command:
 
 ### the docker image can be now accessed from here:
 https://hub.docker.com/r/ftarrade/python36-conda-env-ml-dl/
+(more info here: https://ropenscilabs.github.io/r-docker-tutorial/04-Dockerhub.html)  
 
-(more info here: https://ropenscilabs.github.io/r-docker-tutorial/04-Dockerhub.html)
+# How to create the Docker image on the Google Cloud (GCP)
+## Setup GCP
+- On the GCP Console, go to the Manage resources page and select or create a new project.
+- Make sure that billing is enabled for your project.
+- Create a new project or use an other project (project_ID is needed later)
+## Create a Docker image on GCP
+- ```git clone https://github.com/tarrade/proj_docker_images_ML.git proj_docker_image_ML```
+- ```cd proj_docker_image_ML```
+- ```gcloud container builds submit --help```
+- ```gcloud builds submit --timeout=36000 --tag gcr.io/project_ID/docker-anaconda-env-ml-dl .```
+## Check the build
+https://console.cloud.google.com/cloud-build/builds?authuser=0&project=docker-ml-dl-28571
