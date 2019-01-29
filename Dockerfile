@@ -1,5 +1,5 @@
 # use centos for our image to mimic BigBox
-FROM centos:6.9
+FROM centos:6
 
 # define the language
 ENV LANG=en_US.UTF-8
