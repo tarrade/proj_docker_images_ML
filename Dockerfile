@@ -38,9 +38,9 @@ RUN /opt/rh/devtoolset-2/root/usr/bin/gcc --version
 ENV PATH /opt/rh/devtoolset-2/root/usr/bin:$PATH
 
 # Anaconda installation
-RUN wget https://repo.continuum.io/archive/Anaconda3-5.3.0-Linux-x86_64.sh && \
-    /bin/bash Anaconda3-5.3.0-Linux-x86_64.sh -b -p /opt/conda && \
-    rm Anaconda3-5.3.0-Linux-x86_64.sh
+RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
+    /bin/bash Miniconda3-latest-Linux-x86_64.sh -b -p /opt/conda && \
+    rm Miniconda3-latest-Linux-x86_64.sh
 
 # seting the path
 ENV PATH /opt/conda/bin:$PATH
@@ -57,7 +57,8 @@ ADD environment.yml environment.yml
 RUN ls -la
 
 # update conda
-RUN conda update -n base conda -y
+# RUN conda update -n base conda -y
+RUN conda update conda -y
 
 # tricks to be removed
 #RUN pip install --upgrade pip msgpack PyHamcrest==1.9.0
@@ -66,10 +67,14 @@ RUN conda update -n base conda -y
 # install extra conda packages
 RUN conda env create -f=environment.yml -n env_ds_bigbox
 
+
 RUN source activate env_ds_bigbox && \
-	which python && \
-	conda list && \
-	conda-pack -n env_ds_bigbox -o env_ds_bigbox.tar.gz && \
+	which python && mkdir /extracted_kernel/ \
+	conda list 
+
+#TillHere
+RUN	conda install -c conda-forge conda-pack && \
+    conda-pack -n env_ds_bigbox -o  /extracted_kernel/env_ds_bigbox.tar.gz && \
 	ls -la && \
 	source deactivate env_ds_bigbox
 
@@ -77,7 +82,7 @@ RUN source activate env_ds_bigbox && \
 ENV PATH /opt/conda/envs/env_ds_bigbox/bin:$PATH
 
 # copy the env in a folder which is mounted on an external folder
-CMD /bin/mv env_ds_bigbox.tar.gz /extracted_kernel/
+#CMD /bin/mv env_ds_bigbox.tar.gz /extracted_kernel/
 
 # clean all downloaded packages
 RUN conda clean -a -y
