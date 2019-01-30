@@ -76,7 +76,7 @@ RUN source activate env_ds_bigbox && \
 RUN	conda install -c conda-forge conda-pack && \
     conda-pack -n env_ds_bigbox -o  /extracted_kernel/env_ds_bigbox.tar.gz && \
 	ls -la && \
-	source deactivate env_ds_bigbox
+	source deactivate env_ds_bigbx
 
 # activate the env_ds_bigbox environment
 ENV PATH /opt/conda/envs/env_ds_bigbox/bin:$PATH
