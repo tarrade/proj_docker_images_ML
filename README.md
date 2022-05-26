@@ -107,7 +107,3 @@ https://hub.docker.com/r/ftarrade/python36-conda-env-ml-dl/
 - ```gcloud builds submit --timeout=36000 --tag gcr.io/project_ID/docker-anaconda-env-ml-dl .```
 ## Check the build
 https://console.cloud.google.com/cloud-build/builds?authuser=0&project=docker-ml-dl-28571
-
-## test
-**The Cauchy-Schwarz Inequality**
-$$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)$$
